@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InfosPdf index{% endblock %}
+
+{% block body %}
+    <h1>InfosPdf index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>SessionName</th>
+                <th>ParticipateAt</th>
+                <th>Content</th>
+                <th>Logo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_pdf in infos_pdfs %}
+            <tr>
+                <td>{{ infos_pdf.id }}</td>
+                <td>{{ infos_pdf.firstname }}</td>
+                <td>{{ infos_pdf.lastname }}</td>
+                <td>{{ infos_pdf.sessionName }}</td>
+                <td>{{ infos_pdf.participateAt ? infos_pdf.participateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ infos_pdf.content }}</td>
+                <td>{{ infos_pdf.logo }}</td>
+                <td>
+                    <a href="{{ path('infos_pdf_show', {'id': infos_pdf.id}) }}">show</a>
+                    <a href="{{ path('infos_pdf_edit', {'id': infos_pdf.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('infos_pdf_new') }}">Create new</a>
+{% endblock %}

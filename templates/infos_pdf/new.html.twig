@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New InfosPdf{% endblock %}
+
+{% block body %}
+    <h1>Create new InfosPdf</h1>
+
+    {{ include('infos_pdf/_form.html.twig') }}
+
+    <a href="{{ path('infos_pdf_index') }}">back to list</a>
+{% endblock %}

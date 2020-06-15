@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Attestation</title>
+    </head>
+    <body>
+        <h1>{{ infos.sessionName }}</h1>
+        <h4>{{ infos.firstname }} {{ infos.lastname }}</h4>
+        <p>{{ infos.content }}</p>
+        <p>{{ infos.participateAt|date("m/d/Y") }}</p>
+        <img src="{{ asset('uploads/images/' ~ infos.logo) }}" alt="logo">
+    </body>
+</html>
